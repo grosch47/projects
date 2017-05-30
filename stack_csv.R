@@ -1,0 +1,8 @@
+setwd('~/Desktop/csv')
+library(data.table)  
+files <- list.files(path ='~/Desktop/csv',pattern ='.csv')
+temp <- lapply(files,fread,sep=",")
+data <- rbindlist(temp)
+head(data)
+nrow(data)
+write.csv(data,file='stacked_data.csv',row.names=FALSE,col.names=TRUE)
